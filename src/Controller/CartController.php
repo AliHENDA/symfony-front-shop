@@ -49,7 +49,7 @@ class CartController extends AbstractController
      * 
      * @Route("/cart/add/{id<\d+>}", name="app_cart_add")
      */
-    public function add(Request $request, int $id, Product $product)
+    public function add(int $id)
     {
         $this->cartService->add($id);
         return $this->redirectToRoute('app_cart');
@@ -62,7 +62,7 @@ class CartController extends AbstractController
      * 
      * @Route("/cart/delete/{id<\d+>}", name="app_cart_delete")
      */
-    public function deleteFrom(Request $request, int $id, Product $product)
+    public function deleteFrom(int $id)
     {
         $this->cartService->deleteFromCart($id);
         return $this->redirectToRoute('app_cart');
@@ -75,7 +75,7 @@ class CartController extends AbstractController
      * 
      * @Route("/cart/deleteAll/{id<\d+>}", name="app_cart_deleteAll")
      */
-    public function deleteAllCart(Request $request, int $id, Product $product)
+    public function deleteAllCart(int $id)
     {
         $this->cartService->deleteAllCart($id);
         return $this->redirectToRoute('app_cart');
