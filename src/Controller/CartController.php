@@ -86,9 +86,9 @@ class CartController extends AbstractController
      * 
      * @Route("/cart/deleteAll", name="app_cart_deleteCart")
      */
-    public function deleteCart(Request $request, int $id, Product $product)
+    public function deleteCart()
     {
-        $this->cartService->deleteCart($id);
+        $this->cartService->deleteCart();
         return $this->redirectToRoute('app_main_home');
     }
 
