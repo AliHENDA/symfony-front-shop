@@ -70,13 +70,16 @@ class CartService {
         }
 
         // tva en propriété de la class, de sorte qu'en cas de changement, on la modifie qu'à un seul endroit
+        $subTotalHT = round($subTotalTTC/(1 + $this->tva),2);
+        $taxe = $subTotalTTC-$subTotalHT;
 
         $fullCart['data'] = [
             'quantityCart' => $quantityCart,
-            'subTotalHT' => $subTotal,
-            'taxe' => round($subTotal*$this->tva,2),
-            'subTotalTTC' => round($subTotal + ($subTotal*$this->tva),2)
+            'subTotalHT' => $subTotalHT,
+            'taxe' => $taxe,
+            'subTotalTTC' => $subTotalTTC
         ];
+        
 
         return $fullCart;
 
