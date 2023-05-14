@@ -89,12 +89,13 @@ class CartService {
         $cart = $this->getCart();
         if(isset($cart[$id])) {
             // on vérifie si la quantité de cet id est supérieure à 1
-            if($cart[$id] > 1)
+            if($cart[$id] > 1) {
             // si oui, on décrémente
             $cart[$id]--;
         } else {
             // dans le cas le produit n'est pas dans le panier
             unset($cart[$id]);
+        }
         }
         $this->update($cart);
     }
